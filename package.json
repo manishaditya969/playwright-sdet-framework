@@ -1,24 +1,31 @@
 {
-  "name": "PlayWrightAutomation",
+  "name": "playwright-sdet-pro-framework",
   "version": "1.0.0",
-  "description": "",
+  "description": "Professional Playwright Framework with Cucumber BDD & Allure Reporting",
   "main": "index.js",
   "scripts": {
+    "pretest": "rimraf allure-results playwright-report",
     "regression": "npx playwright test",
     "webTests": "npx playwright test --grep @Web",
-    "APITests": "npx playwright test --grep @API",
-    "SafariNewConfig": "npx playwright test --config playwright.config1.js --project=safari"
+    "apiTests": "npx playwright test --grep @API",
+    "safari:config": "npx playwright test --config playwright.config1.js --project=safari",
+    "report:generate": "allure generate allure-results --clean -o allure-report",
+    "report:open": "allure open allure-report",
+    "lint": "eslint . --ext .ts"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["playwright", "sdet", "automation", "cucumber", "allure"],
+  "author": "Manish Aditya",
   "license": "ISC",
   "devDependencies": {
-    "@cucumber/cucumber": "*",
-    "@playwright/test": "^1.40",
-    "allure-playwright": "^2.0.0-beta.15",
-    "typescript": "^5.4.5"
+    "@cucumber/cucumber": "^10.3.0",
+    "@playwright/test": "^1.52.0",
+    "allure-playwright": "^3.0.0",
+    "typescript": "^5.7.0",
+    "rimraf": "^5.0.0",
+    "eslint": "^9.0.0"
   },
   "dependencies": {
-    "exceljs": "^4.4.0"
+    "exceljs": "^4.4.0",
+    "dotenv": "^16.4.5"
   }
 }
